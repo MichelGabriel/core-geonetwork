@@ -40,7 +40,6 @@ import java.util.Properties;
  * Another difference is that this class does not send an email in a separate thread which makes it easier to handle
  * exceptions.
  *
- * Another difference is that this class is capable of sending multipart email with text, html, images and attachments.
  *
  * @author heikki doeleman
  */
@@ -114,7 +113,6 @@ public class JavaMailer {
 	 */
 	public void send(String subject, String text, String html, String sender, String... recipients) throws MessagingException {
         try {
-            System.out.println("mailer start");
             MimeMessage message = new MimeMessage(mailSession);
             message.setSubject(subject);
             message.setFrom(new InternetAddress(sender));
@@ -173,11 +171,9 @@ public class JavaMailer {
             String password = this.password;
             int smtpPort = this.smtpPort;
             if(this.authentication) {
-                System.out.println("Using authentication");
                 transport.connect(host, smtpPort, username, password);
             }
             else {
-                System.out.println("Not using authentication");
                 transport.connect(host, smtpPort, null, null);
             }
 
@@ -186,7 +182,6 @@ public class JavaMailer {
             transport.sendMessage(message, addresses);
         }
         finally {
-            System.out.println("mailer end");
             transport.close();
         }
 	}

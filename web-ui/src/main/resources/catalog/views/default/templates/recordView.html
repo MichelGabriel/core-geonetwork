@@ -2,7 +2,7 @@
   <div class="alert alert-warning"
        data-ng-hide="mdView.current.record"
        data-translate=""
-       data-translate-values="{uuid: '{{recordIdentifierRequested | htmlToPlaintext}}'}">
+       data-translate-values="{uuid: '{{recordIdentifierRequested}}'}">
     recordNotFound
   </div>
 
@@ -28,7 +28,6 @@
       <span data-translate="">next</span>
       <i class="fa fa-angle-right"></i>
     </button>
-
 
     <div class="btn-group pull-right">
       <button type="button" class="btn btn-default dropdown-toggle"
@@ -60,6 +59,7 @@
 
       <i class="fa fa-times"></i>
     </a>
+    
     <a class="btn btn-primary gn-md-edit-btn pull-right"
        data-ng-show="user.canEditRecord(mdView.current.record)"
        data-ng-href="catalog.edit#/metadata/{{mdView.current.record.getId()}}"
@@ -71,8 +71,8 @@
          id="gn-metadata-display"
          class="gn-metadata-display">
     </div>
-
-
+    
+    <div class="mdfeedback"></div>
 
     <div data-ng-show="!usingFormatter" class="gn-metadata-display">
 
@@ -550,10 +550,10 @@
              target="_blank"
              class="btn btn-lg btn-default"><i class="fa fa-fw fa-facebook"></i></a>
           <a data-ng-href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{socialMediaLink | encodeURIComponent}}"
-             target="_blank"
+             target="_blank" 
              class="btn btn-lg btn-default"><i class="fa fa-fw fa-linkedin"></i></a>
           <a data-ng-href="mailto:?subject={{mdView.current.record.title || mdView.current.record.defaultTitle}}&amp;body={{socialMediaLink | encodeURIComponent}}"
-             target="_blank"
+             target="_blank" 
              class="btn btn-lg btn-default"><i class="fa fa-fw fa-envelope-o"></i></a>
         </section></br>
 
