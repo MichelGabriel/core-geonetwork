@@ -33,7 +33,7 @@
         $scope.toggle = function() {
           $scope.mdFeedbackOpen = !$scope.mdFeedbackOpen;
         };
-
+        
         $scope.send = function(formId) {
           $http({
             url : 'contact.send?_content_type=json',

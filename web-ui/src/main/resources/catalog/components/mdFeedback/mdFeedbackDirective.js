@@ -34,7 +34,22 @@
               restrict: 'EC',
               replace: true,
               templateUrl:
-              '../../catalog/components/mdFeedback/partials/mdFeedback.html'
+              '../../catalog/components/mdFeedback/partials/mdFeedback.html',
+              link: function postLink(scope, element, attrs) {
+
+                $(element).find('.modal').on('hidden.bs.modal', function(){
+                  scope.$apply(function(){
+                    scope.mdFeedbackOpen = false;
+                  });
+                });
+                
+                scope.$watch('mdFeedbackOpen', function(value){
+                  if(value == true)
+                    $(element).find('.modal').modal('show');
+                  else
+                    $(element).find('.modal').modal('hide');
+                });
+              }
             };
           });
 
