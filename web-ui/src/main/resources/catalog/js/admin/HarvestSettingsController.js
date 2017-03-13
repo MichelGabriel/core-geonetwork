@@ -82,14 +82,18 @@
                 gnUtilityService.parseBoolean($scope.harvesterSelected);
               }
               $scope.isLoadingOneHarvester = false;
-              if ($scope.harvesterSelected.searches[0].from) {
-                $scope.harvesterSelected.searches[0].from =
-                   new Date($scope.harvesterSelected.searches[0].from);
-              }
 
-              if ($scope.harvesterSelected.searches[0].until) {
-                $scope.harvesterSelected.searches[0].until =
-                   new Date($scope.harvesterSelected.searches[0].until);
+              if ($scope.harvesterSelected.searches) {
+                if ($scope.harvesterSelected.searches[0].from) {
+                  $scope.harvesterSelected.searches[0].from =
+                     new Date($scope.harvesterSelected.searches[0].from);
+                }
+
+                if ($scope.harvesterSelected.searches[0].until) {
+                  $scope.harvesterSelected.searches[0].until =
+                  new Date($scope.harvesterSelected.searches[0].until);
+
+                }
               }
             }).error(function(data) {
               // TODO
@@ -436,7 +440,8 @@
             $scope.oaipmhSets = data[0].sets;
             $scope.oaipmhPrefix = data[0].formats;
           } else {
-            $scope.oaipmhInfo = $translate.instant('oaipmh-FailedToGetSetsAndPrefix');
+            $scope.oaipmhInfo =
+                $translate.instant('oaipmh-FailedToGetSetsAndPrefix');
           }
         }).error(function(data) {
         });

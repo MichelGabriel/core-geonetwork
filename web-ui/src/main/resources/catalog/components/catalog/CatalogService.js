@@ -110,10 +110,10 @@
                 (isTemplate === 'SUB_TEMPLATE' ? 'SUB_TEMPLATE' : 'TEMPLATE') :
                 'METADATA',
             sourceUuid: id,
-            isChildOfSource: isChild,
+            isChildOfSource: isChild ? 'true' : 'false',
             group: groupId,
             isVisibleByAllGroupMembers: withFullPrivileges,
-            targetUuid: metadataUuid
+            targetUuid: metadataUuid || ''
           });
           return $http.put('../api/records/duplicate?' + url, {
             headers: {
@@ -255,6 +255,7 @@
     solrproxy: '../api/0.1/search'
   });
 
+
   /**
    * @ngdoc service
    * @kind function
@@ -388,9 +389,11 @@
    * Load the catalog config and push it to gnConfig.
    */
   module.factory('gnConfigService', [
-    '$http',
+    '$http', '$q',
     'gnConfig',
-    function($http, gnConfig) {
+    function($http, $q, gnConfig) {
+      var defer = $q.defer();
+      var loadPromise = defer.promise;
       return {
 
         /**
@@ -406,7 +409,7 @@
          */
         load: function() {
           return $http.get('../api/site/settings', {cache: true})
-            .then(function(response) {
+              .then(function(response) {
                 angular.extend(gnConfig, response.data);
                 // Replace / by . in settings name
                 angular.forEach(gnConfig, function(value, key) {
@@ -419,8 +422,12 @@
                 if (window.location.search.indexOf('with3d') !== -1) {
                   gnConfig['map.is3DModeAllowed'] = true;
                 }
+                defer.resolve(gnConfig);
+              }, function() {
+                defer.reject();
               });
         },
+        loadPromise: loadPromise,
 
         /**
          * @ngdoc method

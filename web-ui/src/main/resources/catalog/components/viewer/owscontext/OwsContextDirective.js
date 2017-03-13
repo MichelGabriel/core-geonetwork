@@ -55,11 +55,11 @@
   module.directive('gnOwsContext', [
     'gnViewerSettings',
     'gnOwsContextService',
-    'gnConfig',
+    'gnGlobalSettings',
     '$translate',
     '$rootScope',
     '$http',
-    function(gnViewerSettings, gnOwsContextService, gnConfig,
+    function(gnViewerSettings, gnOwsContextService, gnGlobalSettings,
         $translate, $rootScope, $http) {
       return {
         restrict: 'A',
@@ -91,7 +91,7 @@
           };
 
           scope.isSaveMapInCatalogAllowed =
-              gnConfig['map.isSaveMapInCatalogAllowed'];
+              gnGlobalSettings.gnCfg.mods.map.isSaveMapInCatalogAllowed || true;
           scope.mapUuid = null;
           scope.mapProps = {
             map_title: '',
@@ -141,13 +141,15 @@
           });
 
           // load context from url or from storage
+          var key = 'owsContext_' +
+              window.location.host + window.location.pathname;
           var storage = gnViewerSettings.storage ?
               window[gnViewerSettings.storage] : window.localStorage;
           if (gnViewerSettings.owsContext) {
             gnOwsContextService.loadContextFromUrl(gnViewerSettings.owsContext,
                 scope.map);
-          } else if (storage.getItem('owsContext')) {
-            var c = storage.getItem('owsContext');
+          } else if (storage.getItem(key)) {
+            var c = storage.getItem(key);
             gnOwsContextService.loadContext(c, scope.map);
           } else if (gnViewerSettings.defaultContext) {
             gnOwsContextService.loadContextFromUrl(

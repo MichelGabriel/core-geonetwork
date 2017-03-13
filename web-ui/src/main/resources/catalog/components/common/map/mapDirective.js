@@ -44,6 +44,8 @@
              hbottomRef: '@',
              hleftRef: '@',
              hrightRef: '@',
+             identifierRef: '@',
+             identifier: '@',
              dcRef: '@',
              extentXml: '=?',
              lang: '=',
@@ -132,7 +134,8 @@
                list: gnMap.getMapConfig().projectionList,
                md: 'EPSG:4326',
                map: gnMap.getMapConfig().projection,
-               form: gnMap.getMapConfig().projectionList[0].code
+               form: gnMap.getMapConfig().projectionList[0].code,
+               formLabel: gnMap.getMapConfig().projectionList[0].label
              };
 
              scope.extent = {
@@ -150,10 +153,15 @@
              }
 
              var reprojExtent = function(from, to) {
-               scope.extent[to] = gnMap.reprojExtent(
+               var extent = gnMap.reprojExtent(
                    scope.extent[from],
                    scope.projs[from], scope.projs[to]
                );
+               if (extent && extent.map) {
+                 scope.extent[to] = extent.map(function(coord) {
+                   return Math.round(coord * 10000) / 10000;
+                 });
+               }
              };
 
              // Init extent from md for map and form
@@ -162,9 +170,14 @@
              setDcOutput();
 
              scope.$watch('projs.form', function(newValue, oldValue) {
-               scope.extent.form = gnMap.reprojExtent(
+               var extent = gnMap.reprojExtent(
                    scope.extent.form, oldValue, newValue
                );
+               if (extent && extent.map) {
+                 scope.extent.form = extent.map(function(coord) {
+                   return Math.round(coord * 10000) / 10000;
+                 });
+               }
              });
 
              // TODO: move style in db config
@@ -304,18 +317,29 @@
               * Zoom to extent.
               */
              scope.onRegionSelect = function(region) {
+               // Manage regions service and geonames
+               var bbox = region.bbox || region;
                scope.$apply(function() {
-                 scope.extent.md = [parseFloat(region.west),
-                   parseFloat(region.south),
-                   parseFloat(region.east),
-                   parseFloat(region.north)];
+                 scope.extent.md = [parseFloat(bbox.west),
+                   parseFloat(bbox.south),
+                   parseFloat(bbox.east),
+                   parseFloat(bbox.north)];
                  scope.location = region.name;
+
+                 if (attrs.identifierRef !== undefined) {
+                   scope.identifier = region.id;
+                 }
+
                  reprojExtent('md', 'map');
                  reprojExtent('md', 'form');
                  setDcOutput();
                  drawBbox();
                  map.getView().fit(scope.extent.map, map.getSize());
                });
+             };
+
+             scope.resetRegion = function() {
+               element.find('.twitter-typeahead').find('input').val('');
              };
            }
          };

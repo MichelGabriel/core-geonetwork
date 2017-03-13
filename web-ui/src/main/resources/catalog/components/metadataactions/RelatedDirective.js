@@ -52,7 +52,8 @@
             return (response.data);
           },
           function() {
-            return ($q.reject('Something went wrong'));
+            return ($q.reject('Something went wrong loading ' +
+            'related records of type ' + types));
           }
           );
 
@@ -92,7 +93,8 @@
               types: '@',
               title: '@',
               list: '@',
-              user: '='
+              user: '=',
+              hasResults: '=?'
             },
             link: function(scope, element, attrs, controller) {
               var promise;
@@ -107,6 +109,7 @@
                        angular.forEach(data, function(value) {
                          if (value) {
                            scope.relationFound = true;
+                           scope.hasResults = true;
                          }
                        });
                      });

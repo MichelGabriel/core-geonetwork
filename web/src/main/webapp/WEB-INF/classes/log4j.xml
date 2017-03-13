@@ -39,6 +39,12 @@
   <logger name="geonetwork.database">
     <level value="WARN"/>
   </logger>
+  <logger name="geonetwork.cors">
+    <level value="WARN"/>
+  </logger>
+  <logger name="geonetwork.userwatchlist">
+    <level value="WARN"/>
+  </logger>
   <logger name="geonetwork.editor">
     <level value="WARN"/>
   </logger>
@@ -76,7 +82,7 @@
     <level value="WARN"/>
   </logger>
   <logger name="geonetwork.harvester" additivity="false">
-    <level value="WARN"/>
+    <level value="INFO"/>
     <appender-ref ref="consoleAppender"/>
     <appender-ref ref="fileAppender"/>
   </logger>

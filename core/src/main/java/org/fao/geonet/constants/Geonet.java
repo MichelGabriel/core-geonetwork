@@ -79,6 +79,7 @@ public final class Geonet {
     public static final String CSW_HARVEST = CSW + ".harvest";
     public static final String SRU = GEONETWORK + ".sru";
     public static final String SRU_SEARCH = SRU + ".search";
+    public static final String USER_WATCHLIST = GEONETWORK + ".userwatchlist";
     public static final String OAI = GEONETWORK + ".oai";
     public static final String OAI_HARVESTER = OAI + ".provider";
     // keys for logging search log
@@ -93,6 +94,7 @@ public final class Geonet {
     public static final String ATOM = GEONETWORK + ".atom";
     public static final String EDITOR_SESSION = GEONETWORK + ".editor.session";
     public static final String CLASSIFIER = GEONETWORK + ".classifier";
+    public static final String CORS = GEONETWORK + ".cors";
 
     /**
      * Container for file names.
@@ -124,6 +126,7 @@ public final class Geonet {
         public static final String SCHEMA_PLUGINS_CATALOG = "schemaplugin-uri-catalog.xml";
         public static final String SORT_HARVESTERS = "sort-harvesters.xsl";
         public static final String JZKITAPPLICATIONCONTEXT = "JZkitApplicationContext.xml";
+        public static final String INFLATE_METADATA = "inflate-metadata.xsl";
 
         /**
          * Stylesheet to convert a CQL parameter to a filter.

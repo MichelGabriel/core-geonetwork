@@ -14,11 +14,11 @@
       <!--Source catalog Logo-->
       <a data-ng-if="md.groupWebsite"
          href="{{md.groupWebsite}}" target="_blank">
-        <img data-ng-src="../..{{md.logo}}"
+        <img data-ng-src="{{gnUrl}}..{{md.logo}}"
              class="gn-source-logo"/>
       </a>
       <img data-ng-if="!md.groupWebsite"
-           data-ng-src="../..{{md.logo}}"
+           data-ng-src="{{gnUrl}}..{{md.logo}}"
            class="gn-source-logo"/>
 
       <div class="gn-md-category"
@@ -54,7 +54,7 @@
     <div class="row gn-md-title"
          data-ng-click="openRecord($index, md, searchResults.records)">
       <h3>
-        <a href=""
+        <a data-ng-href="#/metadata/{{md.getUuid()}}"
            title="{{md.title || md.defaultTitle}}">
 
           <i class="fa gn-icon-{{md.type[0]}}" title="{{md.type[0] | translate}}"/>

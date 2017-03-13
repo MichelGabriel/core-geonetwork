@@ -37,6 +37,7 @@ public class Settings {
     public static final String SYSTEM_SERVER_PROTOCOL = "system/server/protocol";
     public static final String SYSTEM_PLATFORM_VERSION = "system/platform/version";
     public static final String SYSTEM_PLATFORM_SUBVERSION = "system/platform/subVersion";
+    public static final String SYSTEM_CORS_ALLOWEDHOSTS = "system/cors/allowedHosts";
     public static final String SYSTEM_CSW_TRANSACTION_XPATH_UPDATE_CREATE_NEW_ELEMENTS = "system/csw/transactionUpdateCreateXPath";
     public static final String SYSTEM_PROXY_USE = "system/proxy/use";
     public static final String SYSTEM_PROXY_HOST = "system/proxy/host";
@@ -81,6 +82,7 @@ public class Settings {
     public static final String SYSTEM_CSW_METADATA_PUBLIC = "system/csw/metadataPublic";
     public static final String SYSTEM_USERSELFREGISTRATION_ENABLE = "system/userSelfRegistration/enable";
     public static final String SYSTEM_USERFEEDBACK_ENABLE = "system/userFeedback/enable";
+    public static final String SYSTEM_USER_LASTNOTIFICATIONDATE = "system/userFeedback/lastNotificationDate";
     public static final String SYSTEM_LOCALRATING_ENABLE = "system/localrating/enable";
     public static final String SYSTEM_XLINK_RESOLVER_IGNORE = "system/xlinkResolver/ignore";
     public static final String SYSTEM_HIDEWITHHELDELEMENTS_ENABLE_LOGGING = "system/hidewithheldelements/enableLogging";
@@ -110,4 +112,5 @@ public class Settings {
     public static final String REGION_GETMAP_WIDTH = "region/getmap/width";
     public static final String REGION_GETMAP_SUMMARY_WIDTH = "region/getmap/summaryWidth";
     public static final String METADATA_WORKFLOW_DRAFT_WHEN_IN_GROUP = "metadata/workflow/draftWhenInGroup";
+    public static final String VIRTUAL_SETTINGS_SUFFIX_ISDEFINED = "IsDefined";
 }
