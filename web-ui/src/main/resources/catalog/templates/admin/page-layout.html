@@ -3,9 +3,12 @@
   <!-- 3 columns -->
   <div class="col-menu">
     <ul class="clearfix">
-      <li data-ng-repeat="m in getMenu()" data-ng-class="pageMenu.folder === (m.name + '/') && 'active'">
+      <li data-ng-repeat="m in getMenu()" data-ng-class="('#' + pageMenu.folder) === (m.route + '/') && 'active'">
       <a href="{{getMenuUrl(m)}}"
-         class="btn {{m.classes}}">
+         class="btn {{m.classes}}"
+         title="{{m.name | translate}}"
+         data-toggle="tooltip"
+         data-placement="right">
         <i class="fa {{m.icon}}"/>
         <span class="label" data-translate="">{{m.name}}</span>
       </a>
@@ -25,7 +28,7 @@
     </ul>
   </div>
 
-  <div class="col-content">
+  <div class="col-content clearfix">
     <div class="col-lg-12" data-ng-include="getTpl(pageMenu)"></div>
   </div>  
 
