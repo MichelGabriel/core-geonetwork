@@ -1,15 +1,21 @@
-<div class="container" id="gn-directory-container">
-  <ul class="nav nav-pills">
-    <li class="disabled"><a data-translate=""
-                            href="javascript:void(0);">directoryManager</a></li>
-    <li data-ng-repeat="type in mdTypes"
-        data-ng-class="activeType === type ? 'active' : ''">
-      <a href="" data-ng-click="selectType(type)">
-        <i class="fa {{getTypeIcon(type)}}"/>&nbsp;{{type | translate}}</a></li>
-  </ul>
-  <br/>
+<div class="container-fluid gn-padding-top" id="gn-directory-container">
+
   <div class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-8 col-sm-offset-2">
+      <ul class="nav nav-tabs">
+        <li class="disabled"><a data-translate=""
+                                href="javascript:void(0);">directoryManager</a></li>
+        <li data-ng-repeat="type in mdTypes"
+            data-ng-class="activeType === type ? 'active' : ''">
+          <a href="" data-ng-click="selectType(type)">
+            <i class="fa {{getTypeIcon(type)}}"/>&nbsp;{{type | translate}}</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row gn-padding-top">
+
+    <div class="col-sm-3 col-sm-offset-2">
       <div class="panel panel-default">
         <div class="panel-heading">
           <i class="fa fa-list-ul"/>
@@ -87,7 +93,7 @@
         </div>
       </div>
     </div>
-    <div class="col-sm-8" data-ng-if="isImporting">
+    <div class="col-sm-5" data-ng-if="isImporting">
       <div class="panel-default panel">
         <div class="panel-heading" data-translate="">
           importEntry
@@ -122,7 +128,7 @@
         </div>
       </div>
     </div>
-    <div class="col-sm-8" data-ng-if="activeEntry">
+    <div class="col-sm-5" data-ng-if="activeEntry">
       <div class="panel-default panel">
         <div class="panel-heading">
           <span data-translate="">{{activeEntry.title || activeEntry.defaultTitle}}</span>
