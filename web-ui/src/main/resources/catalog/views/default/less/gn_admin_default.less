@@ -12,6 +12,16 @@ ul.gn-resultview li.list-group-item {
 	background-color: #fdfbfb;
 }
 
+// messages
+.gn-info {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  right: 0;
+  border-radius: 0;
+}
+
 // layout
 .gn-admin {
 	.col-menu {
@@ -106,7 +116,14 @@ ul.gn-resultview li.list-group-item {
 				border-left: 1px solid #ddd;
 			}
 			.panel-body {
-				margin-top: 55px;
+				margin-top: 25px;
+			}
+		}
+		// all panels
+		.panel-heading {
+			.clearfix();
+			.btn-toolbar {
+				float: right;
 			}
 		}
 	}
@@ -138,12 +155,17 @@ ul.gn-resultview li.list-group-item {
 		    ul li.active > a {
 			    color: #333;
 				}
+				ul li a:hover {
+					background-color: transparent;
+					color: #000;
+				}
 				.fa-caret-square-o-down {
 					display: none;
 				}
 				.fa-arrow-circle-up {
 					float: left !important;
 					color: #333;
+					margin-left: 0;
 				}
 			}
 		}
