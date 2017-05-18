@@ -24,6 +24,9 @@ ul.gn-resultview li.list-group-item {
 
 // layout
 .gn-admin {
+	.form-control, .btn {
+		border-radius: 2px;
+	}
 	.col-menu {
 		position: fixed;
 		width: 100px;
@@ -207,4 +210,33 @@ ul.gn-resultview li.list-group-item {
 			text-decoration: none;
 		}
 	}
+}
+
+// selects
+// 
+// multiple
+select[multiple], select[size] {
+  height: auto;
+  padding: 0;
+  option {
+  	padding: 10px;
+  	height: 38px;
+  	line-height: 38px;
+  	border-bottom: 1px solid #ddd; 
+  }
+  option:before {
+  	display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+  	content: "\f096";
+  	margin-right: 10px;
+  }
+  option:checked {
+  	border-color: #bbb;
+  }
+  option:checked:before {
+		content: "\f14a";
+  }
 }
