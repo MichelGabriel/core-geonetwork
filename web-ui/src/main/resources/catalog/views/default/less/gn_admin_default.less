@@ -104,6 +104,7 @@ ul.gn-resultview li.list-group-item {
 	.col-content {
 		margin-left: 300px;
 		padding-top: 15px;
+		max-width: 1250px;
 		// settings page
 		[data-ng-controller="GnSystemSettingsController"] {
 			.panel-heading {
@@ -114,6 +115,7 @@ ul.gn-resultview li.list-group-item {
 				z-index: 5;
 				border-right: 1px solid #ddd;
 				border-left: 1px solid #ddd;
+
 			}
 			.panel-body {
 				margin-top: 25px;
@@ -126,10 +128,28 @@ ul.gn-resultview li.list-group-item {
 				float: right;
 			}
 		}
+		// checkboxes & radios
+		input[type="radio"], input[type="checkbox"] {
+	    margin-top: 11px;
+		}
+		.radio-inline {
+			input[type="radio"], input[type="checkbox"] {
+		    margin-top: 4px;
+			}
+		}
+		fieldset {
+			h1 {
+				font-size: 30px;
+			}
+			legend {
+				font-size: 20px;
+				padding-top: 15px;
+			}
+		}
 	}
 }
 
-@media screen and (min-width: 1400px) {
+@media screen and (min-width: 1350px) {
 	.col-content {
 		// settings page
 		[data-ng-controller="GnSystemSettingsController"] {
@@ -155,7 +175,7 @@ ul.gn-resultview li.list-group-item {
 		    ul li.active > a {
 			    color: #333;
 				}
-				ul li a:hover {
+				ul li a:hover, ul li a:focus {
 					background-color: transparent;
 					color: #000;
 				}
@@ -175,5 +195,16 @@ ul.gn-resultview li.list-group-item {
 .gn-dashboard {
 	.col-content {
 		margin-left: 100px;
+	}
+}
+
+// logo settings
+.gn-logo-settings {
+	.btn-link {
+		color: #999;
+		&:hover {
+			color: #333;
+			text-decoration: none;
+		}
 	}
 }
