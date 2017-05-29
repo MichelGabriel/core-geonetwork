@@ -118,7 +118,7 @@
         <li class="list-group-item" href=""
             data-ng-repeat="resource in relations.onlines | orderBy:sortLinks">
           <div class="row">
-            <div class="col-md-11"
+            <div class="col-md-10"
                  title="{{resource.description | gnLocalized: lang}}">
               <a data-ng-href="{{resource.url}}"
                  data-ng-if="resource.url.match('^http|ftp') !== null"
@@ -133,21 +133,23 @@
                 {{(resource.title | gnLocalized: lang) || resource.url}}
               </span>
             </div>
-            <div class="col-md-1">
-              <a href=""
-                 class="onlinesrc-remove"
-                 data-ng-if="gnCurrentEdit.schemaConfig.related.readonly !== true"
-                 data-ng-show="allowEdits"
-                 data-ng-click="onlinesrcService.onOpenPopup('onlinesrc', resource)">
-                <i class="fa fa-pencil"></i>
-              </a>
-              <a href=""
-                 class="onlinesrc-remove"
-                 title="{{('remove' | translate) + ' ' + resource.description | gnLocalized: lang}}"
-                 data-ng-if="gnCurrentEdit.schemaConfig.related.readonly !== true"
-                 data-gn-click-and-spin="onlinesrcService.removeOnlinesrc(resource)">
-                <i class="fa fa-times text-danger"></i>
-              </a>
+            <div class="col-md-2">
+              <div class="btn-group btn-group-xs">
+                <a href=""
+                   class="onlinesrc-remove btn btn-default"
+                   data-ng-if="gnCurrentEdit.schemaConfig.related.readonly !== true"
+                   data-ng-show="allowEdits"
+                   data-ng-click="onlinesrcService.onOpenPopup('onlinesrc', resource)">
+                  <i class="fa fa-pencil"></i>
+                </a>
+                <a href=""
+                   class="onlinesrc-remove btn btn-default"
+                   title="{{('remove' | translate) + ' ' + resource.description | gnLocalized: lang}}"
+                   data-ng-if="gnCurrentEdit.schemaConfig.related.readonly !== true"
+                   data-gn-click-and-spin="onlinesrcService.removeOnlinesrc(resource)">
+                  <i class="fa fa-times text-danger"></i>
+                </a>
+              </div>
             </div>
           </div>
         </li>
