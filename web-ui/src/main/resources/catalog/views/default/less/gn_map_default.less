@@ -1,5 +1,5 @@
 [data-gn-map-field] > [ngeo-map] {
-  //height: 89.9vh;
+  // height: calc(~"100% - 50px");
   border: 1px solid #ccc;
   border-radius: 3px;
   right: 0;
@@ -37,6 +37,11 @@
       }
     }
   }
+}
+
+[gn-main-viewer] [ngeo-map], .gn-main-viewer [ngeo-map] {
+  width: 100%;
+  height: calc(~"100vh - 50px");
 }
 
 button.gn-minimap-toggle {
@@ -106,5 +111,26 @@ button.gn-minimap-toggle {
     border-radius: 0;
     border-color: #ccc;
     background: #efefef;
+  }
+}
+
+// panel tools
+.panel-tools {
+  .panel-heading {
+    h3 {
+      font-size: 20px;
+      margin-top: 15px;
+    }
+  }
+  .panel-body {
+    padding: 10px 15px !important;
+  }
+  // tabs
+  .nav-tabs {
+    padding-left: 15px;
+    margin-top: 10px;
+  }
+  .tab-content {
+    padding: 10px;
   }
 }
