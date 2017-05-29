@@ -90,6 +90,19 @@ form.gn-editor {
       .btn [data-gn-click-and-spin] {
         margin-right: 3px;
       }
+      fieldset {
+        margin: 0 0 10px 0;
+        .col-sm-2, .col-sm-9 {
+          padding-right: 15px;
+          padding-left: 15px;
+        }
+      }
+      .gn-move {
+        display: none;
+      }
+    }
+    .table {
+      margin-bottom: 0;
     }
     fieldset {
     	margin: 10px;
@@ -99,7 +112,20 @@ form.gn-editor {
       }
     }
   }
-  // override deafult bootstrap widths for the editor
+  // date and time
+  [data-gn-date-picker] {
+    .col-sm-9, .col-sm-12 {
+      padding-left: 2px;
+      padding-right: 0;
+    }
+    .input-group-btn {
+      float: left;
+    }
+  }
+  .gn-date-picker > input[type=date], .gn-date-picker > input[type=time] {
+    width: 40%;
+  }
+  // override default bootstrap widths for the editor
   .col-sm-2 {
     width: 25%;
   }
@@ -110,4 +136,16 @@ form.gn-editor {
       padding-right: 0;
     }
   }
+  // field in field
+  .gn-field {
+    .gn-field {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+}
+
+// remove buttons
+.gn-onlinesrc-panel .list-group-item .row > div .onlinesrc-remove {
+  padding: 1px 5px;
 }
