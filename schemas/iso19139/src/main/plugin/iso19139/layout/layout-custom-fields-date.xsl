@@ -93,7 +93,7 @@
       <label class="col-sm-2 control-label">
         <xsl:value-of select="$labelConfig/label"/>
       </label>
-      <div class="col-sm-3 gn-value">
+      <div class="col-sm-3 gn-value gn-nopadding-right">
         <xsl:variable name="codelist"
                       select="gn-fn-metadata:getCodeListValues($schema,
                                   'gmd:CI_DateTypeCode',
@@ -119,7 +119,7 @@
           <xsl:with-param name="domeElementToMoveRef" select="$dateTypeElementRef"/>
         </xsl:call-template>
       </div>
-      <div class="col-sm-6 gn-value">
+      <div class="col-sm-6 gn-value gn-nopadding-left">
         <div data-gn-date-picker="{gco:Date|gco:DateTime}"
              data-label=""
              data-element-name="{name(gco:Date|gco:DateTime)}"
