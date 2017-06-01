@@ -1,4 +1,4 @@
-<div class="navbar navbar-default gn-top-bar"
+<div class="navbar navbar-default gn-top-bar gn-minimal"
      role="navigation"
      data-ng-show="gnCfg.mods.header.enabled"
      data-ng-include="'../../catalog/templates/top-toolbar.html'"
@@ -6,7 +6,7 @@
 </div>
 <div data-gn-alert-manager=""></div>
 
-<div class="gn-search-page"
+<div class="gn-search-page gn-minimal"
      data-ng-controller="GnSearchController">
   <cookiewarning></cookiewarning>
   <div class=""
@@ -28,7 +28,6 @@
 </div>
 
 
-<div class="navbar navbar-default gn-bottom-bar" role="navigation"
-     data-ng-include="'../../catalog/views/default/templates/footer.html'">
+<div data-ng-include="'../../catalog/views/default/templates/footer.html'">
 </div>
 <!-- /footer -->

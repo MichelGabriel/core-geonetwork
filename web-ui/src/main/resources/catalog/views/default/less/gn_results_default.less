@@ -65,7 +65,6 @@ ul.gn-resultview {
         &.gn-md-edit-btn {
           width: 12px;
           margin-left: 10px;
-          
         }
       }
       h4 {
@@ -73,7 +72,7 @@ ul.gn-resultview {
         font-weight: 700;
         a {
           color: rgb(51, 51, 51);
-          width: 95%;
+          width: 90%;
           line-height: 1.5em;
         }
         .fa {
@@ -112,7 +111,9 @@ ul.gn-resultview {
 
   li.gn-grid {
     @grid-bottom-margin: 2px;
-
+    width: calc(~"50% - 10px");
+    margin-right: 10px;
+    float: left;
     .gn-md-col2 {
       margin-left: 25px;
     }
@@ -174,7 +175,7 @@ ul.gn-resultview {
       }
     }
     .gn-md-abstract.ellipsis:after {
-      background: none;
+      background: #fff;
     }
     .gn-md-links {
       border: 0;
@@ -208,40 +209,3 @@ ul.gn-resultview {
     }
   }
 }
-
-// gridview for search results
-.list-results-grid {
-  ul.gn-resultview {
-    .clearfix();
-    // title
-    .gn-md-title {
-      h3 {
-        font-size: 19px !important;
-        width: 100%;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-    }
-    // single item
-    li.list-group-item {
-      float: left;
-      width: 50%;
-    }
-    li.list-group-item:nth-child(odd) {
-      padding-right: 15px;
-    }
-    li.list-group-item:nth-child(even) {
-      padding-left: 15px;
-    }
-
-    .gn-md-abstract p {
-      height: 150px;
-    }
-
-    .gn-md-keywords {
-      display: none;
-    }
-  }
-}
-

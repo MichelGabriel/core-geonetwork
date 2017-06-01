@@ -434,6 +434,7 @@ body, html {
 // styling for the scrollbar
 ::-webkit-scrollbar {
   width: 3px;
+  height: 3px;
 }
 // ----- track
 ::-webkit-scrollbar-track {
@@ -550,33 +551,81 @@ body, html {
 
   // search result
   .gn-resultview {
-    .list-group-item.gn-grid {
-      input {
-        display: none;
-      }
+    .list-group-item {
+      
       .row {
         padding-left: 0 !important;
       }
-      .gn-md-col2 {
-        margin-left: 0;
-        .pull-right {
-          img {
-            display: none;
-          }
-        }
-        h3 .fa {
-          display: none;
-        }
-        [data-gn-metadata-rate] {
-          display: none;
-        }
-        .gn-md-category {
-          display: none;
-        }
-        .gn-md-details {
+      // edit button
+      .media a.gn-md-edit-btn {
+        width: auto;
+        border-radius: 50%;
+        padding: 8px 12px;
+        border-color: #ddd;
+      }
+      // hide logo
+      .pull-left {
+        img {
           display: none;
         }
       }
+      h3, h4 {
+        .clearfix();
+        font-size: 16px;
+        input[type="checkbox"] {
+          margin: 3px 10px 0 0;
+        }
+        a {
+          display: block;
+          float: left;
+        }
+        // hide category icon
+        .fa {
+          display: none;
+        }
+      }
+      [data-gn-metadata-rate] {
+        display: none;
+      }
+      .gn-md-category {
+        display: none;
+      }
+      .gn-md-details {
+        display: none;
+      }
+      // no thumbnail
+      .gn-md-thumbnail {
+        display: none;
+      }
+      // footer
+      .gn-md-links {
+        i {
+          margin-left: 5px;
+        }
+      }
+
+    }
+    // grid results
+    .list-group-item.gn-grid {
+      .gn-md-title {
+      margin-top: 2px;
+      overflow: hidden;
+      cursor: pointer;
+      float: left;
+      max-width: 95%;
+      h3 {
+        font-size: 18px;
+
+        a {
+          color: #333333;
+          text-overflow: ellipsis; 
+          overflow: hidden;
+          display: block;
+          width: 100%;
+          white-space: nowrap;
+        }
+      }
+    }
     }
   }
 }
