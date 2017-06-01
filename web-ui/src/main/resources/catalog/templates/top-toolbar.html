@@ -34,13 +34,13 @@
       <li data-ng-if="gnCfg.mods.search.enabled">
         <a data-gn-active-tb-item="{{gnCfg.mods.search.appUrl}}"
            title="{{'search' | translate}}">
-          <span class="visible-lg" data-translate="">search</span>
+          <span data-translate="">search</span>
         </a>
       </li>
       <li data-ng-if="gnCfg.mods.map.enabled">
         <a data-gn-active-tb-item="{{gnCfg.mods.map.appUrl}}"
            title="{{'map' | translate}}">
-          <span class="visible-lg" data-translate="">makeYourMap</span>
+          <span data-translate="">makeYourMap</span>
 
           <span data-gnv-layer-indicator=""/>
         </a>
@@ -49,7 +49,7 @@
           data-ng-show="authenticated && user.isEditorOrMore()">
         <a data-gn-active-tb-item="{{gnCfg.mods.editor.appUrl}}"
            title="{{'editorBoard' | translate}}">
-          <span class="visible-lg" data-translate="">contribute</span>
+          <span  data-translate="">contribute</span>
         </a>
       </li>
       <li data-ng-if="gnCfg.mods.editor.enabled"
