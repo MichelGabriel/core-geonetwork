@@ -409,5 +409,6 @@
   "wpsByUrl": "Search processes",
   "wpsRecent": "Recent Processes",
   "selection.indexing.count": "Indexing started for the {{count}} record(s) selected.",
-  "selection.indexing.error": "Error during selection indexing."
+  "selection.indexing.error": "Error during selection indexing.",
+  "geonetworkDescription": "GeoNetwork is a catalog application to manage spatially referenced resources. It provides powerful metadata editing and search functions as well as an interactive web map viewer. It is currently used in numerous Spatial Data Infrastructure initiatives across the world."
 }
