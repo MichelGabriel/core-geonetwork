@@ -10,6 +10,7 @@
 @import "gn_topics_default.less";
 // navigation
 @import "gn_navbar_default.less";
+@import "gn_bar_default.less";
 // styling for a single result: metadata view
 @import "gn_result_default.less";
 // styling for all search results
@@ -42,6 +43,7 @@
   clear: both;
   flex-grow: 1;
   position: relative;
+  margin-top: 54px;
   .gn-md-view {
     padding: 0 20px;
   }
@@ -71,9 +73,10 @@
 [data-ng-search-form] {
   .gn-top-search {
     border-bottom: 1px solid @panel-default-border;
-    padding-bottom: 10px;
+    padding-bottom: 30px;
     margin-bottom: 10px;
     position: relative;
+    margin-top: -20px;
     [typeahead] {
       vertical-align: middle;
       display: inline-block;
