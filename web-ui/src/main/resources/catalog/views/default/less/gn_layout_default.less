@@ -12,6 +12,15 @@ body {
   padding-top: @gnSubbarHeight;
 }
 
+[ng-app="gn_search_default"] body, [ng-app="gn_login"] body {
+  background-image: @gnBackground; 
+  background-position: center top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+
 .container-fluid {
   margin-right: auto;
   margin-left: auto;
@@ -20,7 +29,7 @@ body {
 }
 
 .gn-row-main {
-  margin: 2em 0 4em;
+  margin: 5em 0;
   padding-left: 15px;
   padding-right: 15px;
 }

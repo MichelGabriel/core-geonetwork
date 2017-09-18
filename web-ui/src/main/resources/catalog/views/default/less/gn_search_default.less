@@ -43,7 +43,9 @@
   clear: both;
   flex-grow: 1;
   position: relative;
-  margin-top: 17px;
+  .search-over {
+    color: #777;
+  }
   .gn-md-view {
     padding: 0 20px;
   }
@@ -73,9 +75,8 @@
 [data-ng-search-form] {
   .gn-top-search {
     border-bottom: 1px solid @panel-default-border;
-    padding-top: 10px;
+    padding-top: 30px;
     padding-bottom: 30px;
-    margin-bottom: 10px;
     position: relative;
     [typeahead] {
       vertical-align: middle;
