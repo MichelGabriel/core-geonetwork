@@ -1,6 +1,41 @@
-<div data-ng-controller="GnAdminController">
-  <div class="row">
-    <div class="col-md-12">
+<div data-ng-controller="GnAdminController" class="gn-admin">
+
+  <!-- 3 columns -->
+  <div class="col-menu">
+    <ul class="clearfix col-menu-top">
+      <li>
+        <a data-gn-active-tb-item="admin.console"
+           title="{{'adminConsole' | translate}}"
+           class="btn btn-default">
+          <i class="fa fa-wrench"></i>
+          <span class="label" data-translate="">adminConsole</span>
+        </a>
+      </li>
+    </ul>
+    <ul>
+      <li data-ng-repeat="m in getMenu()" data-ng-class="('#' + pageMenu.folder) === (m.route + '/') && 'active'">
+      <a href="{{getMenuUrl(m)}}"
+         class="btn {{m.classes}}"
+         title="{{m.name | translate}}"
+         data-toggle="tooltip"
+         data-placement="right">
+        <i class="fa {{m.icon}}"/>
+        <span class="label" data-translate="">{{m.name}}</span>
+      </a>
+      </li>
+    </ul>
+    <ul class="clearfix col-menu-bottom">
+      <li>
+        <a data-gn-active-tb-item="{{gnCfg.mods.home.appUrl}}"
+           class="btn btn-default">
+          <i class="fa fa-home"></i>
+          <span class="label">{{info['system/site/name']}}</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="col-submenu">
       <ul class="nav nav-pills">
         <li data-ng-repeat="t in pageMenu.tabs"
             data-ng-class="href === t.href && 'active'">
@@ -10,9 +45,9 @@
           </a>
         </li>
       </ul>
-    </div>
   </div>
-  <br/>
 
-  <div data-ng-include="getTpl(pageMenu)"></div>
+  <div class="col-content clearfix">
+    <div class="col-lg-12" data-ng-include="getTpl(pageMenu)"></div>
+  </div>  
 </div>
