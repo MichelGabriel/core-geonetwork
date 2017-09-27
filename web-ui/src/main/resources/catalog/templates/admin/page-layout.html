@@ -1,7 +1,16 @@
 <div data-ng-controller="GnAdminController" class="gn-admin">
 
+  <div class="col-logo">
+    <a data-gn-active-tb-item="{{gnCfg.mods.home.appUrl}}">
+      <img class="gn-logo"
+           data-ng-src="{{gnUrl}}../images/logos/{{info['system/site/siteId']}}.png?random{{info['system/site/lastUpdate']}}"/>
+      <span class="hidden-sm hidden-md">{{info['system/site/name']}}</span>
+    </a>
+  </div>
+
   <!-- 3 columns -->
   <div class="col-menu">
+
     <ul class="clearfix col-menu-top">
       <li>
         <a data-gn-active-tb-item="admin.console"

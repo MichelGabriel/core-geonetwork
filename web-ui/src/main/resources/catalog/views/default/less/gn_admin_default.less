@@ -3,6 +3,13 @@
 
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
+// variables
+@admin-background: #f6f6f6;
+@col-menu-background: #212121;
+@col-menu-hover: #000;
+@col-menu-color: #fff;
+@col-submenu-background: #403e3b;
+
 body, html {
   font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -16,7 +23,7 @@ ul.gn-resultview li.list-group-item {
 // admin body
 [ng-app="gn_admin"] {
 	body {
-		background-color: #f6f6f6;
+		background-color: @admin-background;
 		padding-top: 50px;
 		.navbar {
 			position: fixed;
@@ -27,11 +34,16 @@ ul.gn-resultview li.list-group-item {
 			margin-bottom: 0;
 			border-color: #ddd;
 			background-color: #fff;
+			height: 51px;
 			ul.navbar-nav {
 				display: none;
 			}
 			ul.navbar-right {
 				display: block;
+			}
+			.container {
+				padding-right: 0;
+				width: auto;
 			}
 		}
 	}
@@ -40,71 +52,77 @@ ul.gn-resultview li.list-group-item {
 // layout
 .gn-admin {
 	.form-control, .btn {
-		border-radius: 2px;
+		// border-radius: 0;
+	}
+	.col-logo {
+		position: fixed;
+		height: 50px;
+		width: 284px;
+		margin-top: -50px;
+		background-color: #428bca;
+		color: #fff;
+		text-align: center;
+		line-height: 48px;
+		font-size: 16px;
+		z-index: 15;
+		a {
+			text-decoration: none;
+			color: #fff;
+		}
+		.gn-logo {
+			max-height: 24px;
+			margin-right: 5px;
+		}
 	}
 	.col-menu {
 		position: fixed;
 		z-index: 20;
 		width: 84px;
-		background: #1b1a1a;
+		background: @col-menu-background;
 		height: 100%;
 		padding: 10px;
 		text-align: center;
-		margin-top: -50px;
 		ul {
 			list-style: none;
 			padding: 0;
 			margin: 0;
 			li {
 				a {
-					color: #fff;
+					color: @col-menu-color;
 					background: transparent;
 					border: 0;
 					margin-bottom: 5px;
 					padding: 10px 18px;
+					width: 64px;
 					.fa {
-						font-size: 30px;
+						font-size: 26px;
 					}
 					.label {
 						display: none;
 					}
 					&:hover {
-						background: #000;
+						background: @col-menu-hover;
 					}
 				}
 			}
 			li.active {
 				a {
-					background: #000;
+					background: @col-menu-hover;
 				}
 			}
 		}
-		.btn-primary {
-			color: #0088cc;
-		}
-		.btn-success {
-			color: #249826;
-		}
-		.btn-info {
-			color: #6ec9f7;
-		}
-		.btn-warning {
-			color: #cc7700;
-		}
-		.btn-danger {
-			color: @brand-danger;
-		}
+		// no colors for the buttons in the sidebar
 		.btn {
-			// color: #fff;
+			color: @col-menu-color;
 		}
 	}
 
 	.col-menu-top {
 		li {
 			a {
-				background-color: #1b1a1a !important;
+				background-color: transparent !important;
 				&:hover {
-					background: #000 !important;
+					background: @col-menu-hover !important;
 				}
 			}
 		}
@@ -121,17 +139,17 @@ ul.gn-resultview li.list-group-item {
 		margin-left: 84px;
 		height: 100%;
 		padding-top: 10px;
-		background: #333;
-		margin-top: -50px;
+		background: @col-submenu-background;
+		// margin-top: -50px;
 		ul {
 			li {
 				float: none;
 				margin-left: 0;
 				a {
 					border-radius: 0;
-					color: #fff;
+					color: @col-menu-color;
 					&:hover {
-						background: #1b1a1a;
+						background: @col-menu-background;
 					}
 					.fa {
 						display: none;
@@ -140,7 +158,7 @@ ul.gn-resultview li.list-group-item {
 			}
 			li.active {
 				a {
-					background: #1b1a1a;
+					background: @col-menu-background;
 				}
 			}
 		}
@@ -148,29 +166,35 @@ ul.gn-resultview li.list-group-item {
 
 	.col-content {
 		margin-left: 286px;
-		padding-top: 15px;
+		padding-top: 25px;
 		max-width: 1250px;
 		// settings page
 		[data-ng-controller="GnSystemSettingsController"] {
+			margin-top: 50px;
 			.panel-heading {
 				position: fixed;
-				left: 300px;
-				right: 15px;
-				margin-top: -16px;
+				left: 304px;
+				right: 11px;
+				margin-top: -70px;
 				z-index: 5;
-				border-right: 1px solid #ddd;
-				border-left: 1px solid #ddd;
-			}
-			.panel-body {
-				margin-top: 25px;
+				border: 0;
+				border-bottom: 1px solid #ddd;
+				background-color: transparent !important;
+				[data-translate] {
+					display: none;
+				}
 			}
 		}
 		// all panels
 		.panel-heading {
-			background-color: #e5e5e5;
 			.clearfix();
 			.btn-toolbar {
 				float: right;
+			}
+		}
+		.panel-default {
+			.panel-heading {
+				background-color: #e5e5e5;
 			}
 		}
 		// checkboxes & radios
@@ -196,6 +220,13 @@ ul.gn-resultview li.list-group-item {
 				margin-left: 5px;
 			}
 		}
+		.form-horizontal .control-label {
+	    text-align: right;
+	    margin-bottom: 0;
+	    padding-top: 7px;
+	    font-weight: 500;
+	    padding-right: 5px;
+		}
 	}
 }
 
@@ -207,11 +238,11 @@ ul.gn-resultview li.list-group-item {
 			div.gn-scroll-spy {
 		    position: fixed;
 		    bottom: 0px;
-		    top: 140px;
+		    top: 120px;
 		    right: 0px;
 		    opacity: 0.8;
 		    font-size: 80%;
-		    width: 255px;
+		    width: 260px;
 		    z-index: 999;
 		    max-height: 99vh;
 		    overflow: auto;
@@ -248,6 +279,26 @@ ul.gn-resultview li.list-group-item {
 .gn-dashboard {
 	.col-content {
 		margin-left: 100px;
+		.gn-btn-admin {
+			width: 33% !important;
+	    padding-top: 25px;
+	    margin: 0 !important;
+	    background: #fff;
+	    border: 1px solid #ddd;
+	    color: #333;
+	    box-shadow: none;
+	    &:hover, &:active, &:focus {
+	    	background-color: #efefef;
+	    	border-color: #ddd;
+	    }
+	    .fa {
+	    	font-size: 3.5em !important;
+	    }
+	    p {
+	    	margin-top: 5px;
+	    	font-size: 16px;
+	    }
+		}
 	}
 }
 
