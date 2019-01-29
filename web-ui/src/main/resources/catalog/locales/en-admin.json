@@ -1344,5 +1344,14 @@
     "ui-editorIndentType-colored": "Colored indents",
     "filterSettings": "Filter settings ",
     "filterPlaceHolder": "e.g. INSPIRE",
-    "filterReset": "Reset the filter"
+    "filterReset": "Reset the filter",
+    "ui-mdViewTemplate": "Record view template",
+    "ui-mdViewTemplate-help": "The template to use when a single metadata record is displayed",
+    "ui-mdDefaultTab": "Select the default tab",
+    "ui-mdDefaultTab-help": "Select the tab page that's shown when opening the record view (NOTE: only when the 'tabbed' template is selected)",
+    "default": "Default",
+    "tabbed": "Information in tabs",
+    "mdTabGeneral": "General",
+    "mdTabContact": "Contact",
+    "mdTabRelations": "Downloads and links"
 }
