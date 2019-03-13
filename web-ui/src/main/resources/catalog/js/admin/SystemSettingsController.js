@@ -348,6 +348,8 @@
           } else {
             $(this).hide();
           }
+          // check parent
+          $scope.filterParent($(this));
         });
       };
       $scope.resetFilter = function(formId) {
@@ -361,6 +363,25 @@
           $(formId + ' fieldset').show();
         });
 
+      };
+      $scope.filterParent = function(element) {
+        
+        // go back to the fieldset
+        var fieldsetParent = element.parent().parent();
+        // check for UI settings
+        if (fieldsetParent.prop('nodeName').toLowerCase() != 'fieldset') {
+          fieldsetParent = element.parent();
+        }
+        // reset
+        fieldsetParent.show();
+        // count visible elements
+        var counter = fieldsetParent.children('div').children(':visible').length;
+
+        if (counter > 0) {
+          fieldsetParent.show();
+        } else {
+          fieldsetParent.hide();
+        }
       };
 
       $scope.testMailConfiguration = function() {
