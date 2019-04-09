@@ -1359,5 +1359,9 @@
     "hopCount": "Hop count",
     "hopCountHelp": "Control the maximum number of message hops (default to 2) before the search is terminated in a distributed search.",
     "ui-showSocialBarInFooter": "Show Socialbar",
-    "ui-showSocialBarInFooter-help": "Show the button bar with all the social buttons (facebook, twitter, etc.) in the footer of GeoNetwork"
+    "ui-showSocialBarInFooter-help": "Show the button bar with all the social buttons (facebook, twitter, etc.) in the footer of GeoNetwork",
+    "gnSearchCss": "Search Box",
+    "styleVariable-gnSearchOutlineColor": "Border color for when the search box has the focus",
+    "styleVariable-gnSearchButtonBackgroundColor": "Background color for the search button",
+    "styleVariable-gnSearchButtonColor": "Text color for the search button"
 }
