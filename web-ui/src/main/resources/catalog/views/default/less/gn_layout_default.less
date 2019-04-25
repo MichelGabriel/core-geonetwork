@@ -12,10 +12,17 @@
 html, body {
   height:100%;
 }
-
+body {
+  padding-top: calc(~"@{gn-subbar-height} + @{gn-header-height}");
+}
 // header
 .gn-header {
   background-color: @gn-header-background;
+  height: @gn-header-height;
+  padding: 0 30px;
+  img {
+    max-height: @gn-header-height;
+  }
 }
 // background image and color
 [ng-app^="gn_search_"] body, [ng-app="gn_login"] body {
