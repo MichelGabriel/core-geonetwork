@@ -296,7 +296,7 @@ public class CssStyleSettingsService {
             final String key = iter.next();
             if (input.getString(key) != null) {
 
-                if(!key.equals("gnBackgroundImage") && !StringUtils.isEmpty(input.getString(key))) {
+                if(!key.equals("gnHeaderHeight") && !key.equals("gnBackgroundImage") && !StringUtils.isEmpty(input.getString(key))) {
                     Pattern pattern = Pattern.compile("^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$");
                     Matcher matcher = pattern.matcher(input.getString(key));
                     if (!matcher.matches()) {
@@ -306,13 +306,20 @@ public class CssStyleSettingsService {
                     Pattern pattern = Pattern.compile("^(https?|ftp|file)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]");
                     Matcher matcher = pattern.matcher(input.getString(key));
                     if (!matcher.matches()) {
-                        throw new JSONException("Invalid URL in 'gnBackgroundImage' property");
+                        throw new JSONException("Invalid URL in 'Background Image' property");
+                    }
+                } else if(key.equals("gnHeaderHeight") && !StringUtils.isEmpty(input.getString(key))) {
+                    Pattern pattern = Pattern.compile("^[0-9]*(px|em)$");
+                    Matcher matcher = pattern.matcher(input.getString(key));
+                    if (!matcher.matches()) {
+                        throw new JSONException("Invalid height value in 'header height' property. It must be in the format 123px or 345em");
                     }
                 }
 
             }
         }
     }
+
 
     /**
      * Get a string in dashed format and convert to camel format abc-def -> abcDef
