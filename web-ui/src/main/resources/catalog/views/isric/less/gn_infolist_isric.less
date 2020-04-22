@@ -1,41 +1,100 @@
 @import "../../../style/gn_bootstrap.less";
 @import "gn_variables_isric.less";
 
+@import url('//fonts.googleapis.com/css?family=Roboto+Slab&display=swap');
+
 // row for the info lists
 .gn-row-info {
-    padding: 30px 20px 40px 20px;
-    background-color: @gn-info-background-color;
-    .nav-pills {
-      text-align: left !important;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 10px;
-    }
-    @media (max-width: @screen-xs-max) {
-      padding-left: 0;
-      padding-right: 0;
-    }
+  padding: 30px 20px 40px 20px;
+  background-color: @gn-info-background-color;
+  .nav-pills {
+    text-align: left !important;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
   }
-  
-  // custom colors for the blocks in the info list
-  .gn-info-list-blocks {
-    .gn-info-list {
-      li {
-        .resultcard {
-          .title {
-            background: @gn-resultcard-title-background-color;
-            border: @gn-resultcard-title-border;
+  @media (max-width: @screen-xs-max) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+// custom colors for the blocks in the info list
+.gn-info-list-blocks {
+  .gn-info-list {
+    li {
+      width: calc(~"100% / 3");
+      height: 280px;
+      .resultcard {
+        border: 1px solid #ddd;
+        border-bottom: 5px solid @gn-resultcard-title-background-color;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        .title {
+          background: @gn-resultcard-title-background-color;
+          border: @gn-resultcard-title-border;
+          width: 50%;
+          height: 50%;
+          background-color: @isric-orange;
+          opacity: 0.8;
+          transition: all 0.125s ease;
+          -ms-flex-align: center;
+          align-items: center;
+          color: #fff;
+          display: -ms-flexbox;
+          display: flex;
+          -ms-flex-pack: center;
+          justify-content: center;
+          left: 50%;
+          line-height: 1.25;
+          margin: 0;
+          min-height: 180px;
+          min-width: 180px;
+          padding: 20px;
+          position: absolute;
+          text-align: center;
+          text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+          top: 50%;
+          -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+          z-index: 5;
+          a {
             h4 {
               color: @gn-resultcard-title-color;
+              font-family: "Roboto Slab", "Open Sans", serif;
+              font-size: 24px;
+              font-weight: 400;
+              white-space: normal;
+            }
+            &:hover {
+              text-decoration: none;
             }
           }
         }
-        .resultcard.hasThumbnail {
-          &:hover {
-            .title {
-              background: @gn-resultcard-title-background-color-hover;
-            }
+        &:hover {
+          .title {
+            opacity: 1;
+          }
+        }
+        .gn-md-thumbnail {
+          display: none;
+        }
+      }
+      .resultcard.hasThumbnail {
+        &:hover {
+          .title {
+            background: @gn-resultcard-title-background-color-hover;
           }
         }
       }
     }
   }
+}
+.gn-info-list-large, .gn-info-list-small {
+  .gn-info-list li section {
+    background: none;
+  }
+} 
