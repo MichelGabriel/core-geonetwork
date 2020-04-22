@@ -1,0 +1,22 @@
+@import "gn_search_isric.less";
+@import "../../../style/gn_admin";
+// alert messages
+@import "gn_alerts_isric.less";
+// import default styles
+@import "../../default/less/gn_admin_default.less";
+
+[ng-app^="gn_search_"] {
+  .container {
+    width: 100%;
+  }
+  .navbar-default {
+    .navbar-nav > li > a, .navbar-nav > .open > a, .navbar-nav > .active > a {
+      font-weight: normal;
+    }
+  }
+}
+[ng-app="gn_admin"] {
+  .container {
+    width: 100%;
+  }
+}

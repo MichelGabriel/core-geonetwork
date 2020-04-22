@@ -1,0 +1,23 @@
+<div class="row gn-top-search"></div>
+  <div class="input-group gn-form-any">
+    <input type="text"
+          class="form-control input-lg"
+          autofocus=""
+          data-ng-model="homeAnyField"
+          data-ng-model-options="modelOptions"
+          placeholder="{{'anyPlaceHolder' | translate}}"
+          aria-label="{{'anyPlaceHolder' | translate}}"
+          data-ng-keyup="$event.keyCode == 13 && goToSearch(homeAnyField)"
+          data-typeahead="address for address in getAnySuggestions($viewValue)"
+          data-typeahead-loading="anyLoading"
+          data-typeahead-min-length="1"/>
+    <span class="input-group-btn">
+      <a class="btn btn-default btn-lg"
+        type="button"
+        data-ng-href="#/search?any={{homeAnyField}}">
+        <i class="fa fa-search"></i>
+        <span class="sr-only" data-translate="">search</span>
+      </a>
+    </span>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<div data-ng-include="'../../catalog/views/isric/templates/topMenu.html'"></div>
+    
+<header class="gn-header"
+      data-ng-show="gnCfg.mods.header.enabled && gnCfg.mods.header.isLogoInHeader">
+  <div data-ng-class="fluidHeaderLayout ? 'container-fluid' : 'container'">
+    <div class=row>
+      <div class="col-md-3 text-{{gnCfg.mods.header.logoInHeaderPosition}}">
+        <a data-gn-active-tb-item="{{gnCfg.mods.home.appUrl}}">
+          <img class="{{gnCfg.mods.header.logoInHeaderPosition}}"
+              id="isric_logo"
+              alt="{{'siteLogo' | translate}}"
+              src="../../catalog/views/isric/images/logo.png"/>
+        </a>
+      </div>
+      <div class="col-md-9">
+        <!-- <div data-ng-include="'../../catalog/views/isric/templates/searchFormDefault.html'"></div> -->
+      </div>
+    </div>
+  </div>
+</header>
+<!-- /.gn-header -->
+</div>
+<!-- /.gn-top -->
+
+<div class="navbar navbar-default gn-top-bar"
+   role="navigation"
+   data-ng-show="gnCfg.mods.header.enabled"
+   data-ng-include="'../../catalog/views/isric/templates/topToolbar.html'"
+   xmlns="http://www.w3.org/1999/html">
+</div>
+
+<div data-ng-class="fluidLayout ? 'container-fluid' : 'container'">
+  <div gn-main-viewer=""
+       data-map="searchObj.viewerMap">
+  </div>
+</div>

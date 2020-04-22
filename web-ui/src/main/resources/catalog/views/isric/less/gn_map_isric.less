@@ -1,0 +1,24 @@
+@import "../../../style/gn_search.less";
+// import default map styles
+@import "../../default/less/gn_map_default.less";
+// variables
+@import "gn_variables_galicia.less";
+// import default map styles
+@import "../../default/less/gn_map_default.less";
+// variables
+@import "gn_variables_isric.less";
+
+[gn-main-viewer], .gn-main-viewer {
+  position: relative;
+  width: calc(~"100% - 30px");
+  margin: 15px;
+  height: calc(~"100vh - @{gn-header-height} - @{gn-menubar-height} - @{gn-bottombar-height} - 30px");
+  [ol-map] {
+    height: calc(~"100vh - @{gn-header-height} - @{gn-menubar-height} - @{gn-bottombar-height} - 30px");
+  }
+  // control tools: zoom in, zoom out, etc.
+  .control-tools {
+    position: absolute;
+    bottom: 1em;
+  }
+}
