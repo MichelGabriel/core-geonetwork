@@ -1,8 +1,6 @@
 @import "../../../style/gn_bootstrap.less";
 @import "gn_variables_isric.less";
 
-@import url('//fonts.googleapis.com/css?family=Roboto+Slab&display=swap');
-
 // row for the info lists
 .gn-row-info {
   padding: 30px 20px 40px 20px;
@@ -22,7 +20,13 @@
 .gn-info-list-blocks {
   .gn-info-list {
     li {
-      width: calc(~"100% / 3");
+      width: 100%;
+      @media (min-width: @screen-sm-min) {
+        width: 50%;
+      }
+      @media (min-width: @screen-md-min) {
+        width: calc(~"100% / 3");
+      }
       height: 280px;
       .resultcard {
         border: 1px solid #ddd;
@@ -94,7 +98,16 @@
   }
 }
 .gn-info-list-large, .gn-info-list-small {
-  .gn-info-list li section {
-    background: none;
+  .gn-info-list {
+    li {
+      .resultcard {
+        background-image: none !important;
+      }
+      .title {
+        h4 {
+          font-weight: 400;
+        }
+      }
+    }
   }
 } 
