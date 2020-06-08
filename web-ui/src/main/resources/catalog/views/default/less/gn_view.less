@@ -70,3 +70,54 @@
     max-width: 150px;
   }
 }
+
+// Life Watch
+
+// ----- navigation
+.gn-logo {
+  max-height: 40px;
+}
+
+// ----- home page
+.vre_card {
+	height: auto;
+	border-radius: 5px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #E4E4E4;
+	background-color: #F2F2F2;
+}
+.vre_card:hover {
+	cursor: pointer;
+	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 1);
+}
+.overlay {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 100%;
+	width: 100%;
+	opacity: 0;
+	transition: .5s ease;
+	background-color: #008CBA;
+}
+.container:hover .overlay {
+	opacity: 1;
+}
+.text {
+	color: white;
+	font-size: 20px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	text-align: center;
+}
+.row.text-center>div {
+	display: inline-block;
+	float: none;
+}

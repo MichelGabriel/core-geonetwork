@@ -105,7 +105,17 @@
                  title="{{::c.name}} ({{::c.role}})"/>
             {{::c.name}}
           </p>
-        </div>       
+        </div>
+        <!-- LifeWatch -->
+        <div class="row gn-md-details">
+          <p ng-if="::!md.getAllCreators().resource">&nbsp;</p>
+          <p data-ng-repeat="c in ::md.getAllCreators().resource">
+            
+            {{::c.id_creator_dataset}}
+            {{::c.scope_creator_dataset}}
+          </p>
+        </div>
+        
       </div>
 
     </div>
