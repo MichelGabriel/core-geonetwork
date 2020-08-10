@@ -82,7 +82,8 @@
               <p class="text-justify"
                  dd-text-collapse dd-text-collapse-max-length="350"
                  dd-text-collapse-text="{{md.resourceAbstract}}"></p>
-              <p ng-if="::!md.getAllContacts().resource">&nbsp;</p>
+
+                 
               <p data-ng-repeat="c in ::md.getAllContacts().resource track by $index">
                 <img data-ng-if="::c.logo"
                      data-ng-src="{{::c.logo}}"
