@@ -12,6 +12,7 @@
 
       <div class="input-group gn-form-any">
         <input type="text"
+              role="combobox"
               class="form-control input-lg"
               autofocus=""
               autocomplete="off"
@@ -209,12 +210,10 @@
       </button>
     </div>
 
-    <tabset id="info-tabset pull-left" type="pills" justified="false" role="tablist">
+    <tabset id="info-tabset pull-left" type="pills" justified="false">
       <tab heading="{{'lastRecords' | translate}}"
-            role="tab"
             active="infoTabs.lastRecords.active">
         <form class="form-horizontal"
-              role="form"
               data-ng-controller="gnsSearchLatestController"
               data-ng-search-form=""
               data-runSearch="true"
@@ -225,7 +224,6 @@
         </form>
       </tab>
       <tab heading="{{'preferredRecords' | translate}}"
-            role="tab"
             active="infoTabs.preferredRecords.active">
         <form class="form-horizontal"
               role="form"
@@ -239,7 +237,6 @@
       </tab>
       <tab heading="{{'featuredUserSearches' | translate}}"
             data-ng-if="isUserSearchesEnabled && displayFeaturedSearchesPanel"
-            role="tab"
             active="infoTabs.featuredSearches.active">
         <form class="form-horizontal">
           <div data-gn-user-searches-list></div>
@@ -247,8 +244,7 @@
       </tab>
       <tab heading="{{'Comments' | translate}}"
             data-ng-if="isUserFeedbackEnabled"
-            active="infoTabs.commentsalt.active"
-            role="tab">
+            active="infoTabs.commentsalt.active">
         <form class="form-horizontal">
           <div class="data-gn-userfeedbacklasthome"
                 data-nb-of-comments="10"></div>
