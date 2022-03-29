@@ -42,6 +42,28 @@
        'cookie_warning', 'gn_mdactions_directive', 'gn_gridrelated_directive']);
 
 
+  module.controller('gnsScrollController', ['$scope', '$location', '$anchorScroll',
+    function($scope, $location, $anchorScroll) {
+
+      /***
+       * Scroll to an anchor on the page and focus on the first focusable element
+       *
+       * @param anchor The ID of the anchor to scroll to
+       */
+      $scope.gotoAnchor = function (anchor) {
+        // the element you wish to scroll to.
+        // $location.hash(anchor);
+        // call $anchorScroll()
+        // $anchorScroll();
+        // set the focus on the first focusable element
+        setTimeout(function(){ $('#' + anchor).find(':focusable').first().focus(); }, 500);
+
+        return false;
+
+      };
+
+    }]);
+
   module.controller('gnsSearchPopularController', [
     '$scope', 'gnSearchSettings',
     function($scope, gnSearchSettings) {
@@ -208,7 +230,6 @@
       // TODO: Previous record should be stored on the client side
       $scope.mdView = mdView;
       gnMdView.initMdView();
-
 
       $scope.goToSearch = function (any) {
         $location.path('/search').search({'any': any});

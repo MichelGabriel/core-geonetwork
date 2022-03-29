@@ -563,5 +563,6 @@
     "metadataInfoReport": "Metadata information",
     "metadataErrorReport": "Metadata errors",
     "copyToClipboard": "Copy the text to the clipboard",
-    "textCopied": "Text has been copied to the clipboard."
+    "textCopied": "Text has been copied to the clipboard.",
+    "skipLink": "Skip and go to the content"
 }
