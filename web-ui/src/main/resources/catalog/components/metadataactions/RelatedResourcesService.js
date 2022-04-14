@@ -72,6 +72,8 @@
               return r.protocol.replace('WWW:DOWNLOAD:', '');
             } else if (mainType.match(/W([MCF]|MT)S.*|ESRI:REST/)) {
               return mainType.replace('SERVICE', '');
+            } else if (mainType.indexOf('KML') >= 0) {
+              return mainType;
             } else {
               return '';
             }
@@ -387,6 +389,10 @@
           this.getClassIcon = function(type) {
             return this.map[type || 'DEFAULT'].iconClass ||
                 this.map['DEFAULT'].iconClass;
+          };
+
+          this.getProtocolClassIcon = function (type) {
+            return type.replace(':','-').replace(' ','-').toLowerCase();
           };
 
           this.getLabel = function(mainType, type) {
